@@ -1,3 +1,4 @@
+/*
 export const produtos = [
     {
         nome: "Pastel de Carne de Sol",
@@ -44,6 +45,24 @@ export const bebidas = [
         alt: "guarana"
     }
 ];
+*/
+// Remova as declarações diretas de 'produtos' e 'bebidas' se você vai carregá-las do localStorage
+// export const produtos = [...];
+// export const bebidas = [...];
+
+// No seu script.js principal, no início do arquivo:
+let produtos = JSON.parse(localStorage.getItem('produtosCardapio')) || [
+    // Se não houver nada no localStorage, defina alguns produtos padrão aqui
+    // Ex: { nome: "Pastel de Carne de Sol", descricao: "...", preco: 11.00, imagem: "./assets/pastelcarne.avif", alt: "Pastel de Carne" },
+];
+let bebidas = JSON.parse(localStorage.getItem('bebidasCardapio')) || [
+    // Ex: { nome: "Refrigerante Coca lata", descricao: "...", preco: 5.00, imagem: "./assets/refri-1.png", alt: "coca lata" },
+];
+
+// As funções renderizarProdutos() e renderizarBebidas() permanecem as mesmas
+// pois elas já usam as variáveis globais 'produtos' e 'bebidas'.
+
+// ... (Restante do seu script.js permanece igual) ...
 
 // Função para renderizar todos os produtos
 export function renderizarProdutos() {
